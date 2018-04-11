@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo list</title>
+    <link rel="stylesheet" href="/bootstrapmin.css"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form action="#" th:action="@{/todo/add}" th:object="${newtodo}" method="post">
+    <label for="username"><h2>Add new todo:</h2></label>
+    <input type="text" class="form-control mx-sm-3" style="width: 30%" id="username" th:field="*{title}" th:required="required"/>
+    <input type="submit" class="btn btn-danger" value="Add" />
+</form>
+</body>
+</html>
