@@ -1,6 +1,8 @@
 package com.greenfox.demo.Controller;
 
+import com.greenfox.demo.Model.Assignee;
 import com.greenfox.demo.Model.Todo;
+import com.greenfox.demo.Repository.AssigneeRepository;
 import com.greenfox.demo.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ public class TodoController {
 
   @Autowired
   Todo todo;
+
+  @Autowired
+  AssigneeRepository assigneeRepository;
 
   @GetMapping(value = {"/todo/", "/todo/list"})
   public String list(@RequestParam(name = "isActive", required = false, defaultValue = "true") boolean isActive, Model model) {
@@ -48,6 +53,7 @@ public class TodoController {
   @GetMapping(value = "/{id}/edit")
   public String edit(@PathVariable(name = "id") long id, Model model) {
    model.addAttribute("todo", todoRepository.findById(id).get());
+   model.addAttribute("assignee", assigneeRepository.findAll());
    return "edit";
   }
 

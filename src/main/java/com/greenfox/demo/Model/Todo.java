@@ -2,10 +2,7 @@ package com.greenfox.demo.Model;
 
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Service
@@ -55,5 +52,17 @@ public class Todo {
 
   public void setDone(boolean done) {
     this.done = done;
+  }
+
+  @ManyToOne
+  @JoinColumn(name = "assigneeID")
+  private Assignee assignee;
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
   }
 }

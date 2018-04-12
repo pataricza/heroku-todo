@@ -17,6 +17,14 @@
     <div class="input-group-text">
         <input type="checkbox" th:field="*{done}" th:checked="*{done}"/>Done<br>
     </div>
+    <div>
+        <select th:field="*{assignee}">
+            <option value=""> --- </option>
+            <option th:each="oneAssignee : ${assignee}"
+                    th:value="${oneAssignee.assigneeID}"
+                    th:text="${oneAssignee.name}" />
+        </select>
+    </div>
     <input type="submit" class="btn btn-danger" value="Submit"/>
 </form>
 </body>
