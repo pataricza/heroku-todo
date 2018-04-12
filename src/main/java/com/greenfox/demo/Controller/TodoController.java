@@ -56,4 +56,10 @@ public class TodoController {
     todoRepository.save(editedTodo);
     return "redirect:/todo/";
   }
+
+  @PostMapping(value = "/todo/search")
+  public String search(@ModelAttribute(name = "title") String title, Model model) {
+    model.addAttribute("todos", todoRepository.customTitleFinder(title));
+    return "todoslist";
+  }
 }
