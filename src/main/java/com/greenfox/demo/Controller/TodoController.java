@@ -1,6 +1,5 @@
 package com.greenfox.demo.Controller;
 
-import com.greenfox.demo.Model.Assignee;
 import com.greenfox.demo.Model.Todo;
 import com.greenfox.demo.Repository.AssigneeRepository;
 import com.greenfox.demo.Repository.TodoRepository;

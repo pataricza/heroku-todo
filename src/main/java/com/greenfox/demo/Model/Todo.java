@@ -3,6 +3,7 @@ package com.greenfox.demo.Model;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Service
@@ -14,12 +15,10 @@ public class Todo {
   private String title;
   private boolean urgent;
   private boolean done;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date createdAt = new Date();
 
   public Todo() {
-  }
-
-  public Todo(String title) {
-    this.title = title;
   }
 
   public String getTitle() {
@@ -64,5 +63,13 @@ public class Todo {
 
   public void setAssignee(Assignee assignee) {
     this.assignee = assignee;
+  }
+
+  public Date getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
   }
 }

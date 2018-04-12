@@ -26,6 +26,7 @@
                     <th>Email</th>
                     <th>Delete</th>
                     <th>Edit</th>
+                    <th>Todos</th>
                 </tr>
                 <tr th:each="oneAssignee : ${assignees}">
                     <td th:text="${oneAssignee.assigneeID}"></td>
@@ -33,6 +34,7 @@
                     <td th:text="${oneAssignee.email}"></td>
                     <td><a th:href="@{'/todo/assignees/' + ${oneAssignee.assigneeID} + '/delete'}">delete</a></td>
                     <td><a th:href="@{'/todo/assignees/' + ${oneAssignee.assigneeID} + '/edit'}">edit</a></td>
+                    <td><a th:href="@{'/todo/assignees/' + ${oneAssignee.assigneeID} + '/todos'}">open</a></td>
                 </tr>
             </table>
         </div>

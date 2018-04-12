@@ -33,6 +33,7 @@
                     <th>Done</th>
                     <th>Delete</th>
                     <th>Edit</th>
+                    <th>Created at</th>
                 </tr>
                 <tr th:each="oneTodo : ${todos}">
                     <td th:text="${oneTodo.id}"></td>
@@ -41,6 +42,7 @@
                     <td th:text="${oneTodo.done}"></td>
                     <td><a th:href="@{'/' + ${oneTodo.id} + '/delete'}">delete</a></td>
                     <td><a th:href="@{'/' + ${oneTodo.id} + '/edit'}">edit</a></td>
+                    <td th:text="${oneTodo.createdAt}"></td>
                 </tr>
             </table>
         </div>

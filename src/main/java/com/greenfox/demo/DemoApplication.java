@@ -13,6 +13,9 @@ public class DemoApplication implements CommandLineRunner {
 	@Autowired
 	TodoRepository todoRepository;
 
+	@Autowired
+	Todo todo;
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -23,5 +26,9 @@ public class DemoApplication implements CommandLineRunner {
 //		todoRepository.save(new Todo("Valami"));
 //		todoRepository.save(new Todo("Akarmi"));
 //		todoRepository.save(new Todo("Barmi"));
+//
+//		Todo todo = new Todo();
+//		System.out.println(todo.getCreatedAt());
+
 	}
 }

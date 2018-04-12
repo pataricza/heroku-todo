@@ -2,6 +2,7 @@ package com.greenfox.demo.Controller;
 
 import com.greenfox.demo.Model.Assignee;
 import com.greenfox.demo.Repository.AssigneeRepository;
+import com.greenfox.demo.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,5 +54,11 @@ public class AssigneeController {
   public String editedAssignees(@ModelAttribute Assignee editedAssignee) {
     assigneeRepository.save(editedAssignee);
     return "redirect:/todo/assignees";
+  }
+
+  @GetMapping(value = "/todo/assignees/{assigneeID}/todos")
+  public String seeTodos(Model model, @PathVariable(name = "assigneeID") long id) {
+    model.addAttribute("assignee", assigneeRepository.findById(id).get());
+    return "todosofassignee";
   }
 }

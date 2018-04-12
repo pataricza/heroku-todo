@@ -18,11 +18,6 @@ public class Assignee {
   public Assignee() {
   }
 
-  public Assignee(String email, String name) {
-    this.email = email;
-    this.name = name;
-  }
-
   public long getAssigneeID() {
     return assigneeID;
   }
@@ -47,6 +42,14 @@ public class Assignee {
     this.email = email;
   }
 
-  @OneToMany
+  @OneToMany(mappedBy = "assignee")
   private List<Todo> todoList;
+
+  public List<Todo> getTodoList() {
+    return todoList;
+  }
+
+  public void setTodoList(List<Todo> todoList) {
+    this.todoList = todoList;
+  }
 }
