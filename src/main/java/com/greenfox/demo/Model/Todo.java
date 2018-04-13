@@ -16,9 +16,10 @@ public class Todo {
   private boolean urgent;
   private boolean done;
   @Temporal(TemporalType.TIMESTAMP)
-  private Date createdAt = new Date();
+  private Date createdAt;
 
   public Todo() {
+    createdAt = new Date();
   }
 
   public String getTitle() {

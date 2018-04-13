@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class TodoController {
 
@@ -22,6 +24,10 @@ public class TodoController {
 
   @GetMapping(value = {"/todo/", "/todo/list"})
   public String list(@RequestParam(name = "isActive", required = false, defaultValue = "true") boolean isActive, Model model) {
+//    List<Todo> todosByStatus = todoService.getTodosByStatus(isActive);
+//    model.addAttribute("todos", todosByStatus);
+//    return "todoslist";
+
     if (!isActive) {
       model.addAttribute("todos", todoRepository.findAllByDone(isActive));
       return "todoslist";
